@@ -30,8 +30,8 @@ public class ProjectController {
 
     ProjectRepository projectRepository;
 
-    public static final String CREATE_PROJECT = "/projects";
-    public static final String EDIT_PROJECT = "/projects/{project_id}";
+/*    public static final String CREATE_PROJECT = "/projects";
+    public static final String EDIT_PROJECT = "/projects/{project_id}";*/
     public static final String FETCH_PROJECT = "/projects   ";
     public static final String DELETE_PROJECT = "/projects/{project_id}";
 
@@ -156,7 +156,7 @@ public class ProjectController {
     @DeleteMapping(DELETE_PROJECT)
     public AskDto deleteProject(@PathVariable("project_id") Long projectId){
 
-        ProjectEntity project = getProjectOrThrowException(projectId);
+        getProjectOrThrowException(projectId);
         projectRepository.deleteById(projectId);
 
         return AskDto.makeDefault(true);
